@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Sholat & Hadits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-b from-teal-300 to-emerald-400 h-screen w-full overflow-hidden">
+    <!-- Input Form -->
+    <div class="flex flex-col items-center mt-1">
+        <div class="flex gap-4">
+            <select id="timeZone" class="p-2 rounded-md bg-white shadow-md">
+                <option value="Asia/Jakarta">Zona WIB</option>
+                <option value="Asia/Makassar">Zona WITA</option>
+                <option value="Asia/Jayapura">Zona WIT</option>
+            </select>
+            <input id="city" class="p-2 rounded-md shadow-md" placeholder="Masukkan kota Anda" />
+            <button id="submitBtn" class="p-2 bg-teal-400 text-white rounded-md shadow-md hover:bg-teal-700">
+                Submit
+            </button>
+        </div>
+    </div>
+
+    <!-- Jadwal Sholat -->
+    <div class="flex items-center justify-center mt-6">
+        <div class="w-[90vw] sm:w-[70vw] h-[80vh] sm:h-[65vh]">
+            <div class="card w-full h-full rounded-3xl shadow-md backdrop-blur-lg bg-white/5 border border-white/50">
+                <div class="h-[10vh] p-4 sm:p-6 flex items-center justify-between">
+                    <img class="w-12 sm:w-16" src="./masjid.svg" alt="Masjid Icon">
+                    <h1 class="text-3xl sm:text-5xl font-bold text-white">Jadwal Sholat Hari Ini</h1>
+                    <img class="w-12 sm:w-16" src="./jam.svg" alt="Jam Icon">
+                </div>
+                <div class="h-[50vh] sm:h-[45vh] bg-white/20 flex items-center justify-center text-gray-700">
+                    <div
+                        class="grid grid-cols-2 sm:grid-cols-6 gap-4 sm:gap-8 p-6 sm:p-20 text-center bg-gray-100 w-full">
+                        <div class="flex flex-col items-center justify-center p-4 sm:p-6">
+                            <h2 id="imsak" class="text-3xl sm:text-5xl font-bold">Loading...</h2>
+                            <h2 class="text-sm sm:text-lg text-gray-600">Imsak</h2>
+                        </div>
+                        <div class="flex flex-col items-center justify-center p-4 sm:p-6">
+                            <h2 id="subuh" class="text-3xl sm:text-5xl font-bold">Loading...</h2>
+                            <h2 class="text-sm sm:text-lg text-gray-600">Subuh</h2>
+                        </div>
+                        <div class="flex flex-col items-center justify-center p-4 sm:p-6">
+                            <h2 id="dzuhur" class="text-3xl sm:text-5xl font-bold">Loading...</h2>
+                            <h2 class="text-sm sm:text-lg text-gray-600">Dzuhur</h2>
+                        </div>
+                        <div class="flex flex-col items-center justify-center p-4 sm:p-6">
+                            <h2 id="ashar" class="text-3xl sm:text-5xl font-bold">Loading...</h2>
+                            <h2 class="text-sm sm:text-lg text-gray-600">Ashar</h2>
+                        </div>
+                        <div class="flex flex-col items-center justify-center p-4 sm:p-6">
+                            <h2 id="maghrib" class="text-3xl sm:text-5xl font-bold">Loading...</h2>
+                            <h2 class="text-sm sm:text-lg text-gray-600">Maghrib</h2>
+                        </div>
+                        <div class="flex flex-col items-center justify-center p-4 sm:p-6">
+                            <h2 id="isya" class="text-3xl sm:text-5xl font-bold">Loading...</h2>
+                            <h2 class="text-sm sm:text-lg text-gray-600">Isya</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-[10vh] p-4 sm:p-6 flex items-center justify-between">
+                    <h2 class="text-lg sm:text-3xl font-bold text-white flex-shrink-0">Hadist Hari Ini</h2>
+                    <marquee id="hadith-marquee" behavior="scroll" direction="right"
+                        class="flex-grow ml-6 text-xl sm:text-2xl text-white">
+                        Memuat hadits...
+                    </marquee>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Static Hadith Section -->
+    <div class="ml-[4vw] h-[15vh] bg-white/10 text-center text-gray-100 w-[92vw]">
+        <p id="hadith-translation" class="text-sm sm:text-lg font-medium">Memuat terjemahan...</p>
+        <p id="hadith-narrator" class="text-sm sm:text-lg italic mt-2">-</p>
+    </div>
+
+    <script>
+        const submitBtn = document.getElementById("submitBtn");
+        const timeZone = document.getElementById("timeZone");
+        const cityInput = document.getElementById("city");
+
+        async function fetchPrayerTimes(zone, city) {
+            try {
+                // Fetch current date from the API
+                const dateResponse = await fetch(`http://api.aladhan.com/v1/currentDate?zone=${zone}`);
+                const dateData = await dateResponse.json();
+
+                if (!dateData.data) {
+                    throw new Error("Invalid date data from API.");
+                }
+
+                const date = dateData.data;  // Directly use the date string
+
+                // Fetch prayer times using city and country
+                const timingsResponse = await fetch(`http://api.aladhan.com/v1/timingsByCity?city=${city}&country=ID&method=2`);
+                const timingsData = await timingsResponse.json();
+
+                if (timingsData.code === 200) {
+                    const timings = timingsData.data.timings;
+
+                    // Update UI
+                    document.querySelector("#imsak").textContent = timings.Imsak;
+                    document.querySelector("#subuh").textContent = timings.Fajr;
+                    document.querySelector("#dzuhur").textContent = timings.Dhuhr;
+                    document.querySelector("#ashar").textContent = timings.Asr;
+                    document.querySelector("#maghrib").textContent = timings.Maghrib;
+                    document.querySelector("#isya").textContent = timings.Isha;
+                } else {
+                    alert("Data tidak ditemukan. Pastikan kota yang dimasukkan valid.");
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                alert("Terjadi kesalahan saat mengambil data.");
+            }
+        }
+
+         // Fetch Hadith
+         async function fetchHadith() {
+            try {
+                const response = await fetch("https://api.myquran.com/v2/hadits/perawi/acak");
+                const data = await response.json();
+
+                // Extract hadith content
+                const hadithText = data.data.arab;
+                const hadithTranslation = data.data.id;
+                const narrator = data.info.perawi.name;
+
+                // Update marquee text
+                const marquee = document.querySelector('#hadith-marquee');
+                marquee.innerHTML = `<span>${hadithText}</span>`;
+
+                // Update static text
+                document.querySelector('#hadith-translation').textContent = hadithTranslation;
+                document.querySelector('#hadith-narrator').textContent = `- ${narrator}`;
+            } catch (error) {
+                console.error("Error fetching hadith:", error);
+            }
+        }
+
+        submitBtn.addEventListener("click", () => {
+            const zone = timeZone.value;
+            const city = cityInput.value.trim();
+
+            if (!city) {
+                alert("Silakan masukkan kota Anda.");
+                return;
+            }
+
+            fetchPrayerTimes(zone, city);
+        });
+        fetchHadith();
+    </script>
+</body>
+
+</html>
