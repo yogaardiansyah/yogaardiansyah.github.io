@@ -87,7 +87,7 @@
         async function fetchPrayerTimes(zone, city) {
             try {
                 // Fetch current date from the API
-                const dateResponse = await fetch(`http://api.aladhan.com/v1/currentDate?zone=${zone}`);
+                const dateResponse = await fetch(`https://api.aladhan.com/v1/currentDate?zone=${zone}`);
                 const dateData = await dateResponse.json();
 
                 if (!dateData.data) {
@@ -97,7 +97,7 @@
                 const date = dateData.data;  // Directly use the date string
 
                 // Fetch prayer times using city and country
-                const timingsResponse = await fetch(`http://api.aladhan.com/v1/timingsByCity?city=${city}&country=ID&method=2`);
+                const timingsResponse = await fetch(`https://api.aladhan.com/v1/timingsByCity?city=${city}&country=ID&method=2`);
                 const timingsData = await timingsResponse.json();
 
                 if (timingsData.code === 200) {
