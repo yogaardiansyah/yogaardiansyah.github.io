@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Yoga Ardiansyah</title>
+
+    <style>
+        body {
+            background-color: #121212;
+        }
+
+        main {
+            --d: 200vw;
+            --angle: 45deg;
+            border: solid 1px rgba(255, 255, 255, 0.25);
+        }
+
+        main::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+
+            background: repeating-linear-gradient(var(--angle),
+                    #1b2838,
+                    /* Biru tua khas Steam */
+                    #0e141b,
+                    /* Hitam kebiruan */
+                    #2a475e,
+                    /* Biru gelap */
+                    #1b2838 var(--d));
+
+            background-size: calc(var(--d) / sin(var(--angle))) 100%;
+            animation: gradientMove 4s linear infinite reverse;
+            filter: blur(30px);
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: calc(var(--d) / sin(var(--angle))) 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <header>
+        <nav>
+            <!-- Tambahkan menu navigasi di sini -->
+        </nav>
+    </header>
+    <main
+        class="absolute xl:w-[1200px] aspect-video overflow-hidden animate-gradient 
+    top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform flex flex-col items-center justify-center rounded-lg">
+
+        <!-- Logo X di pojok kanan atas -->
+        <button class="absolute top-3 right-3 text-white text-2xl opacity-80 hover:opacity-100 transition-opacity">
+            ✖
+        </button>
+
+        <!-- Teks WebYoga di pojok kiri atas -->
+        <div class="absolute top-3 left-3 text-white text-lg font-semibold opacity-80">
+            WebYoga
+        </div>
+
+        <h2 class="text-4xl font-semibold text-white text-center">
+            Siapa yang sedang membuka website saya?
+        </h2>
+
+        <section class="flex justify-center items-center mt-[5%] gap-6">
+            <a href="/a" class="relative group flex flex-col items-center w-36">
+                <img class="aspect-square h-36 w-36 border border-white/50 rounded-lg transition-transform duration-300 group-hover:scale-110"
+                    src="https://static.wikitide.net/hololivewiki/thumb/a/a1/Akai_Haato_-_Portrait_06-1.png/290px-Akai_Haato_-_Portrait_06-1.png">
+                <span
+                    class="text-white text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-36 text-center break-words">
+                    Recruiter
+                </span>
+                <span
+                    class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-36 text-center break-words">
+                    Jika anda seorang perekrut yang ingin melihat profile saya
+                </span>
+            </a>
+            <a href="/a" class="relative group flex flex-col items-center w-36">
+                <img class="aspect-square h-36 w-36 border border-white/50 rounded-lg transition-transform duration-300 group-hover:scale-110"
+                    src="https://static.wikitide.net/hololivewiki/thumb/a/a1/Akai_Haato_-_Portrait_06-1.png/290px-Akai_Haato_-_Portrait_06-1.png">
+                <span
+                    class="text-white text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-36 text-center break-words">
+                    Recruiter
+                </span>
+                <span
+                    class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-36 text-center break-words">
+                    Jika anda seorang perekrut yang ingin melihat profile saya
+                </span>
+            </a>
+            <a href="/a" class="relative group flex flex-col items-center w-36">
+                <img class="aspect-square h-36 w-36 border border-white/50 rounded-lg transition-transform duration-300 group-hover:scale-110"
+                    src="https://static.wikitide.net/hololivewiki/thumb/a/a1/Akai_Haato_-_Portrait_06-1.png/290px-Akai_Haato_-_Portrait_06-1.png">
+                <span
+                    class="text-white text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-36 text-center break-words">
+                    Recruiter
+                </span>
+                <span
+                    class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-36 text-center break-words">
+                    Jika anda seorang perekrut yang ingin melihat profile saya
+                </span>
+            </a>
+            <a href="/a" class="relative group flex flex-col items-center w-36">
+                <img class="aspect-square h-36 w-36 border border-white/50 rounded-lg transition-transform duration-300 group-hover:scale-110"
+                    src="https://static.wikitide.net/hololivewiki/thumb/a/a1/Akai_Haato_-_Portrait_06-1.png/290px-Akai_Haato_-_Portrait_06-1.png">
+                <span
+                    class="text-white text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-36 text-center break-words">
+                    Recruiter
+                </span>
+                <span
+                    class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-36 text-center break-words">
+                    Jika anda seorang perekrut yang ingin melihat profile saya
+                </span>
+            </a>
+            <a href="/a" class="relative group flex flex-col items-center w-36">
+                <img class="aspect-square h-36 w-36 border border-white/50 rounded-lg transition-transform duration-300 group-hover:scale-110"
+                    src="https://static.wikitide.net/hololivewiki/thumb/a/a1/Akai_Haato_-_Portrait_06-1.png/290px-Akai_Haato_-_Portrait_06-1.png">
+                <span
+                    class="text-white text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-36 text-center break-words">
+                    Recruiter
+                </span>
+                <span
+                    class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-36 text-center break-words">
+                    Jika anda seorang perekrut yang ingin melihat profile saya
+                </span>
+            </a>
+        </section>
+    </main>
+
+
+
+
+
+    <footer>
+        <!-- Tambahkan footer di sini -->
+    </footer>
+</body>
+
+</html>

@@ -1,11 +1,597 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!-- == SEO Meta Tags - EDIT THESE! == -->
+    <title>Yoga Ardiansyah | Full Stack Developer (Web, Mobile, AI/ML)</title>
+    <meta name="title" content="Yoga Ardiansyah | Full Stack Developer (Web, Mobile, AI/ML)">
+    <meta name="description"
+        content="Portfolio of Yoga Ardiansyah, a Full Stack Developer specializing in creating dynamic web applications, mobile apps, and integrating machine learning models. Explore projects, skills, and experience.">
+    <meta name="keywords"
+        content="Yoga Ardiansyah, full stack developer, web developer, mobile developer, machine learning engineer, AI developer, React, Node.js, Python, JavaScript, portfolio, developer portfolio, Indonesia">
+    <meta name="author" content="Yoga Ardiansyah">
+    <meta http-equiv="content-language" content="id">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/"> <!-- ★★★ REPLACE ★★★ -->
+    <meta property="og:title" content="Yoga Ardiansyah | Full Stack Developer (Web, Mobile, AI/ML)">
+    <meta property="og:description"
+        content="Portfolio of Yoga Ardiansyah, specializing in web, mobile, and AI solutions.">
+    <meta property="og:image" content="https://your-domain.com/images/yoga-profile-og.jpg"> <!-- ★★★ REPLACE ★★★ -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-domain.com/"> <!-- ★★★ REPLACE ★★★ -->
+    <meta property="twitter:title" content="Yoga Ardiansyah | Full Stack Developer (Web, Mobile, AI/ML)">
+    <meta property="twitter:description"
+        content="Portfolio of Yoga Ardiansyah, specializing in web, mobile, and AI solutions.">
+    <meta property="twitter:image" content="https://your-domain.com/images/yoga-profile-og.jpg">
+    <!-- ★★★ REPLACE ★★★ -->
+    <!-- == End SEO Meta Tags == -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- ★★★ Add your Favicon link here -->
+    <link rel="icon" href="/favicon.ico">
+
+    <style>
+        :root::-webkit-scrollbar {
+            display: none;
+        }
+
+        :root {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        #timeline .overflow-x-auto::-webkit-scrollbar {
+            display: none;
+        }
+
+        #timeline .overflow-x-auto {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .skill-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+    </style>
 </head>
-<body>
+
+<body class="bg-gray-900 text-white">
+    <nav class="bg-gray-800 p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl md:text-2xl font-semibold">[Yoga Ardiansyah]</a>
+            <button id="menu-btn" class="block md:hidden focus:outline-none text-white hover:text-blue-400">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+            <ul id="menu-links" class="hidden md:flex gap-4 md:gap-6 text-sm md:text-base">
+                <li><a href="#about" class="hover:text-blue-400">Tentang</a></li>
+                <li><a href="#skills" class="hover:text-blue-400">Keahlian</a></li>
+                <li><a href="#projects" class="hover:text-blue-400">Projek</a></li>
+                <li><a href="#timeline" class="hover:text-blue-400">Perjalanan</a></li>
+                <li><a href="#experience" class="hover:text-blue-400">Pengalaman</a></li>
+                <li><a href="#articles" class="hover:text-blue-400">Artikel</a></li>
+                <li><a href="#videos" class="hover:text-blue-400">Video</a></li>
+                <li><a href="#certifications" class="hover:text-blue-400">Sertifikasi</a></li>
+                <li><a href="#contact" class="hover:text-blue-400">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-700 fixed top-16 right-0 left-0 z-40 shadow-lg">
+        <ul class="flex flex-col items-center divide-y divide-gray-600">
+            <li><a href="#about" class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Tentang</a>
+            </li>
+            <li><a href="#skills"
+                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Keahlian</a></li>
+            <li><a href="#projects"
+                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Projek</a></li>
+            <li><a href="#timeline"
+                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Perjalanan</a></li>
+            <li><a href="#experience"
+                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Pengalaman</a></li>
+            <li><a href="#articles"
+                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Artikel</a></li>
+            <li><a href="#videos" class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Video</a>
+            </li>
+            <li><a href="#certifications"
+                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Sertifikasi</a></li>
+            <li><a href="#contact"
+                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Kontak</a></li>
+        </ul>
+    </div>
+
     
+    <header class="w-full">
+        <section id="hero" class="text-center py-16 px-6">
+            <img src="placeholder-profile.jpg" alt="[Foto Profil Yoga Ardiansyah]"
+                class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full shadow-lg border-4 border-gray-700">
+            <h2 class="text-3xl lg:text-4xl font-bold mt-5">Yoga Ardiansyah</h2>
+            <p class="text-xl text-blue-300 mt-1">Full Stack Developer</p>
+            <p class="text-lg text-gray-400 mt-3 max-w-2xl mx-auto">Membangun aplikasi web, mobile, dan solusi berbasis
+                AI/ML yang inovatif dan efisien.</p>
+        </section>
+
+        <section id="about" class="container mx-auto px-6 py-12">
+            <h2 class="text-3xl font-semibold text-center mb-8">Tentang Saya</h2>
+            <div class="max-w-3xl mx-auto text-center text-gray-300 space-y-4 text-lg">
+                <p>[Selamat datang! Saya Yoga Ardiansyah...]</p>
+                <p>[Perjalanan saya di dunia pemrograman dimulai...]</p>
+                <p>[Saya percaya pada pengembangan...]</p>
+            </div>
+        </section>
+    </header>
+
+    <section id="skills" class="bg-gray-800 py-16 px-6">
+        <h2 class="text-3xl font-semibold text-center mb-10">Keahlian Teknis</h2>
+        <div class="container mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-green-300 mb-4 border-b border-green-500 pb-2">Frontend</h3>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/html5.png" class="skill-icon" />
+                        HTML5
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/css3.png" class="skill-icon" />
+                        CSS3
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/tailwind.png" class="skill-icon" />
+                        Tailwind
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/js.png" class="skill-icon" />
+                        JavaScript
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/ts.png" class="skill-icon" />
+                        TypeScript
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/Bun.png" class="skill-icon" />
+                        bun
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/NPM.png" class="skill-icon" />
+                        npm
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/Yarn.png" class="skill-icon" />
+                        yarn
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/Postman.png" class="skill-icon" />
+                        Postman
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/vitejs.png" class="skill-icon" />
+                        ViteJs
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/react.png" class="skill-icon" />
+                        React
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/preact.png" class="skill-icon" />
+                        Preact
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/nextjs.png" class="skill-icon" />
+                        NextJs
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/frontend/Solid.js.png" class="skill-icon" />
+                        SolidJS
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-blue-300 mb-4 border-b border-blue-500 pb-2">Backend</h3>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/backend/laravel.png" class="skill-icon" />
+                        Laravel
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/backend/ci.png" class="skill-icon" />
+                        Code Igniter
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/backend/go.png" class="skill-icon" />
+                        Go
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/backend/flask.png" class="skill-icon" />
+                        Flask
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/backend/django.png" class="skill-icon" />
+                        Django
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/backend/springboot.png" class="skill-icon" />
+                        SpringBoot
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/backend/graphql.png" class="skill-icon" />
+                        GraphQl
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/backend/rabbitmq.png" class="skill-icon" />
+                        RabbitMQ
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-purple-300 mb-4 border-b border-purple-500 pb-2">Database</h3>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/database/mysql.png" class="skill-icon" />
+                        MySQL
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/database/postgree.png" class="skill-icon" />
+                        Postgree
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/database/sqlite.png" class="skill-icon" />
+                        SQlite
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/database/supabase.png" class="skill-icon" />
+                        Supabase
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-yellow-300 mb-4 border-b border-yellow-500 pb-2">AI / Machine
+                    Learning</h3>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/machinelearning/python.png" class="skill-icon" />
+                        Python
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/machinelearning/Anaconda.png" class="skill-icon" />
+                        Anaconda
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/machinelearning/colab.png" class="skill-icon" />
+                        Google Colab
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/machinelearning/Kaggle.png" class="skill-icon" />
+                        Kaggle
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/machinelearning/jupyter.png" class="skill-icon" />
+                        Jupyter
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/machinelearning/PyTorch.png" class="skill-icon" />
+                        PyTorch
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/machinelearning/TensorFlow.png" class="skill-icon" />
+                        TensorFlow
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/machinelearning/OpenCL.png" class="skill-icon" />
+                        OpenCL
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/machinelearning/scikit-learn.png" class="skill-icon" />
+                        Skicit Learn
+                    </li>
+                    <li class="flex items-center">
+                        <img src="assets/img/skill-icons/machinelearning/Matplotlib.png" class="skill-icon" />
+                        MatplotLib
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-purple-300 mb-4 border-b border-purple-500 pb-2">Database &
+                    Lainnya</h3>
+                <ul class="space-y-3 text-gray-300">
+                </ul>
+            </div>
+
+            <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-purple-300 mb-4 border-b border-purple-500 pb-2">Database &
+                    Lainnya</h3>
+                <ul class="space-y-3 text-gray-300">
+                </ul>
+            </div>
+
+            <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-purple-300 mb-4 border-b border-purple-500 pb-2">Database &
+                    Lainnya</h3>
+                <ul class="space-y-3 text-gray-300">
+                </ul>
+            </div>
+
+            <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-purple-300 mb-4 border-b border-purple-500 pb-2">Database &
+                    Lainnya</h3>
+                <ul class="space-y-3 text-gray-300">
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects" class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-semibold text-center mb-10">Projek Unggulan</h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+                class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between hover:shadow-blue-500/30 transition-shadow duration-300">
+                <div>
+                    <img src="assets/img/projects/lpccn.png" alt="lpccn"
+                        class="rounded-md mb-4 w-full h-60 aspect-video object-cover">
+                    <h3 class="text-xl font-semibold text-blue-300">lpccn</h3>
+                    <p class="text-gray-400 mt-2 text-sm">Membuat web apps untuk kebutuhan departemen legal perusahaan
+                        lion parcel</p>
+                    <p class="text-gray-500 mt-3 text-xs uppercase tracking-wider">Teknologi:</p>
+                    <p class="text-sm text-gray-300 mt-3">
+                        <span class="px-2 py-1 bg-yellow-500 text-white rounded-md text-xs">React</span>
+                        <span class="px-2 py-1 bg-blue-500 text-white rounded-md text-xs">Laravel</span>
+                        <span class="px-2 py-1 bg-green-500 text-white rounded-md text-xs">MySQL</span>
+                    </p>
+
+                </div>
+                <div class="mt-4 flex gap-4">
+                    <a href="#" target="_blank" rel="noopener noreferrer"
+                        class="text-blue-400 hover:text-blue-300 inline-block transition-colors duration-200">
+                        </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-gray-300 inline-block transition-colors duration-200">&emsp;</a>
+                </div>
+            </div>
+            <div
+                class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between hover:shadow-blue-500/30 transition-shadow duration-300">
+                <div>
+                    <img src="assets/img/projects/lpccn.png" alt="lpccn"
+                        class="rounded-md mb-4 w-full h-60 aspect-video object-cover">
+                    <h3 class="text-xl font-semibold text-blue-300">lpccn</h3>
+                    <p class="text-gray-400 mt-2 text-sm">Membuat web apps untuk kebutuhan departemen legal perusahaan
+                        lion parcel</p>
+                    <p class="text-gray-500 mt-3 text-xs uppercase tracking-wider">Teknologi:</p>
+                    <p class="text-sm text-gray-300 mt-3">
+                        <span class="px-2 py-1 bg-yellow-500 text-white rounded-md text-xs">React</span>
+                        <span class="px-2 py-1 bg-blue-500 text-white rounded-md text-xs">Laravel</span>
+                        <span class="px-2 py-1 bg-green-500 text-white rounded-md text-xs">MySQL</span>
+                    </p>
+
+                </div>
+                <div class="mt-4 flex gap-4">
+                    <a href="#" target="_blank" rel="noopener noreferrer"
+                        class="text-blue-400 hover:text-blue-300 inline-block transition-colors duration-200">
+                        </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-gray-300 inline-block transition-colors duration-200">&emsp;</a>
+                </div>
+            </div>
+            <div
+                class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between hover:shadow-blue-500/30 transition-shadow duration-300">
+                <div>
+                    <img src="assets/img/projects/lpccn.png" alt="lpccn"
+                        class="rounded-md mb-4 w-full h-60 aspect-video object-cover">
+                    <h3 class="text-xl font-semibold text-blue-300">lpccn</h3>
+                    <p class="text-gray-400 mt-2 text-sm">Membuat web apps untuk kebutuhan departemen legal perusahaan
+                        lion parcel</p>
+                    <p class="text-gray-500 mt-3 text-xs uppercase tracking-wider">Teknologi:</p>
+                    <p class="text-sm text-gray-300 mt-3">
+                        <span class="px-2 py-1 bg-yellow-500 text-white rounded-md text-xs">React</span>
+                        <span class="px-2 py-1 bg-blue-500 text-white rounded-md text-xs">Laravel</span>
+                        <span class="px-2 py-1 bg-green-500 text-white rounded-md text-xs">MySQL</span>
+                    </p>
+
+                </div>
+                <div class="mt-4 flex gap-4">
+                    <a href="#" target="_blank" rel="noopener noreferrer"
+                        class="text-blue-400 hover:text-blue-300 inline-block transition-colors duration-200">
+                        </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-gray-300 inline-block transition-colors duration-200">&emsp;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="bg-gray-800 py-16">
+        <h2 class="text-3xl font-semibold text-center mb-10">Perjalanan Karier & Pembelajaran</h2>
+        <div class="flex gap-6 mt-6 overflow-x-auto snap-x snap-mandatory px-6 pb-6 scroll-smooth">
+            <div class="snap-center shrink-0 bg-blue-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
+                <h3 class="text-xl font-bold">2018</h3>
+                <p class="text-gray-100 mt-1">[Mulai belajar dasar pemrograman (Mis: Python & algoritma dasar).]</p>
+            </div>
+            <div class="snap-center shrink-0 bg-green-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
+                <h3 class="text-xl font-bold">2020</h3>
+                <p class="text-gray-100 mt-1">[Membangun website statis pertama (HTML, CSS, JS)...]</p>
+            </div>
+            <div class="snap-center shrink-0 bg-yellow-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
+                <h3 class="text-xl font-bold">2022</h3>
+                <p class="text-gray-100 mt-1">[Mengikuti kursus ML (Mis: Coursera Andrew Ng)...]</p>
+            </div>
+            <div class="snap-center shrink-0 bg-purple-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
+                <h3 class="text-xl font-bold">2024</h3>
+                <p class="text-gray-100 mt-1">[Mengembangkan aplikasi [Sebutkan tipe, mis: AI]... ]</p>
+            </div>
+            <div class="snap-center shrink-0 bg-red-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
+                <h3 class="text-xl font-bold">[Tahun Berikutnya?]</h3>
+                <p class="text-gray-100 mt-1">[Tujuan atau pencapaian berikutnya?]</p>
+            </div>
+            <div class="snap-center shrink-0 bg-red-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
+                <h3 class="text-xl font-bold">[Tahun Berikutnya?]</h3>
+                <p class="text-gray-100 mt-1">[Tujuan atau pencapaian berikutnya?]</p>
+            </div>
+            <div class="snap-center shrink-0 bg-red-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
+                <h3 class="text-xl font-bold">[Tahun Berikutnya?]</h3>
+                <p class="text-gray-100 mt-1">[Tujuan atau pencapaian berikutnya?]</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="experience" class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-semibold text-center mb-10">Pengalaman Profesional</h2>
+        <div class="max-w-4xl mx-auto space-y-8">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-blue-300">[Posisi - Mis: Freelance Full Stack Developer]</h3>
+                <p class="text-gray-400 text-sm">[Periode - Mis: 2021 - Sekarang]</p>
+                <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
+                    <li>[Deskripsikan tanggung jawab/pencapaian spesifik...]</li>
+                    <li>[Deskripsikan proyek lain...]</li>
+                </ul>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-green-300">[Posisi - Mis: Independent AI Researcher...]</h3>
+                <p class="text-gray-400 text-sm">[Periode - Mis: 2022 - Sekarang]</p>
+                <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
+                    <li>[Deskripsikan penelitian/kontribusi...]</li>
+                </ul>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-yellow-300">[Pengalaman Lain - Mis: Peserta Coding Camp...]</h3>
+                <p class="text-gray-400 text-sm">[Periode - Mis: [Bulan, Tahun]]</p>
+                <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
+                    <li>[Deskripsikan pengalaman...]</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="bg-gray-800 py-16 px-6">
+        <h2 class="text-3xl font-semibold text-center mb-10">Testimoni</h2>
+        <div class="container mx-auto grid md:grid-cols-2 gap-8 max-w-4xl">
+            <blockquote class="bg-gray-900 p-6 rounded-lg shadow-lg border-l-4 border-blue-500">
+                <p class="text-gray-300 italic">"[Kutipan testimoni...]"</p>
+                <footer class="mt-4 text-sm text-gray-400"> — [Nama], <cite>[Jabatan/Perusahaan]</cite></footer>
+            </blockquote>
+            <blockquote class="bg-gray-900 p-6 rounded-lg shadow-lg border-l-4 border-green-500">
+                <p class="text-gray-300 italic">"[Kutipan lain...]"</p>
+                <footer class="mt-4 text-sm text-gray-400"> — [Nama Lain], <cite>[Jabatan/Perusahaan]</cite></footer>
+            </blockquote>
+        </div>
+    </section>
+
+    <section id="education" class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-semibold text-center mb-10">Pendidikan</h2>
+        <div class="max-w-2xl mx-auto space-y-6">
+            <div class="bg-gray-800 p-5 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-purple-300">[Nama Gelar...]</h3>
+                <p class="text-gray-300">[Nama Institusi...]</p>
+                <p class="text-gray-400 text-sm">[Tahun Lulus...]</p>
+                <p class="text-gray-400 mt-1 text-sm">[Opsional: Pencapaian...]</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="articles" class="bg-gray-800 py-16 px-6">
+        <h2 class="text-3xl font-semibold text-center mb-10">Artikel Terbaru</h2>
+        <div class="container mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-blue-500/30 transition-shadow duration-300">
+                <h3 class="text-xl font-semibold">[Judul Artikel 1...]</h3>
+                <p class="text-gray-400 mt-2">[Deskripsi singkat...]</p>
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="text-blue-400 mt-3 inline-block hover:text-blue-300">Baca Selengkapnya →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section id="videos" class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-semibold text-center mb-10">Tutorial Video</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+                <iframe class="w-full h-48 rounded-md" src="https://www.youtube.com/embed/Ke90Tje7VS0" ...></iframe>
+                <h3 class="text-lg font-semibold mt-3">[Judul Video 1...]</h3>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section id="certifications" class="bg-gray-800 py-16 px-6">
+        <h2 class="text-3xl font-semibold text-center mb-10">Sertifikasi</h2>
+        <div class="container mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center">
+                <h3 class="text-xl font-semibold text-blue-300">[Nama Sertifikasi 1...]</h3>
+                <p class="text-gray-400 mt-2">[Lembaga...]</p>
+            </div>
+        </div>
+    </section> -->
+
+    <section id="contact" class="container mx-auto px-6 py-16 text-center">
+        <h2 class="text-3xl font-semibold">Hubungi Saya</h2>
+        <p class="text-gray-400 mt-3 max-w-lg mx-auto">[Mari terhubung!...]</p>
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+            <a href="#" target="_blank" rel="noopener noreferrer"
+                class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg shadow-lg transition-colors duration-200 font-semibold">LinkedIn</a>
+            <a href="#" target="_blank" rel="noopener noreferrer"
+                class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg shadow-lg transition-colors duration-200 font-semibold">GitHub</a>
+            <a href="mailto:[your.email@example.com]"
+                class="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-lg shadow-lg transition-colors duration-200 font-semibold">Email</a>
+            <a href="https://wa.me/[YourWhatsAppNumber]" target="_blank" rel="noopener noreferrer"
+                class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg shadow-lg transition-colors duration-200 font-semibold">WhatsApp</a>
+        </div>
+    </section>
+
+    <footer class="text-center py-6 bg-gray-800 border-t border-gray-700">
+        <p class="text-gray-500 text-sm">© 2024 Yoga Ardiansyah - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            // Select all links within the mobile menu for closing functionality
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    // Toggle the 'hidden' class provided by Tailwind
+                    mobileMenu.classList.toggle('hidden');
+
+                    // Optional: Toggle aria-expanded attribute for accessibility
+                    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true' || false;
+                    menuBtn.setAttribute('aria-expanded', !isExpanded);
+                });
+
+                // Add event listener to each link within the mobile menu
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        // Check if the mobile menu is currently shown before hiding it
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            menuBtn.setAttribute('aria-expanded', 'false'); // Reset aria attribute
+                        }
+                    });
+                });
+            } else {
+                console.error("Mobile menu button or menu container not found!");
+            }
+        });
+    </script>
+
 </body>
+
 </html>
