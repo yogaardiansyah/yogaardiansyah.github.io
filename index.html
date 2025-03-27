@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- == SEO Meta Tags - EDIT THESE! == -->
     <title>Yoga Ardiansyah | Full Stack Developer (Web, Mobile, AI/ML)</title>
     <meta name="title" content="Yoga Ardiansyah | Full Stack Developer (Web, Mobile, AI/ML)">
     <meta name="description"
@@ -15,27 +14,26 @@
     <meta name="author" content="Yoga Ardiansyah">
     <meta http-equiv="content-language" content="id">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-domain.com/"> <!-- ★★★ REPLACE ★★★ -->
+    <meta property="og:url" content="https://your-domain.com/">
     <meta property="og:title" content="Yoga Ardiansyah | Full Stack Developer (Web, Mobile, AI/ML)">
     <meta property="og:description"
         content="Portfolio of Yoga Ardiansyah, specializing in web, mobile, and AI solutions.">
-    <meta property="og:image" content="https://your-domain.com/images/yoga-profile-og.jpg"> <!-- ★★★ REPLACE ★★★ -->
+    <meta property="og:image" content="https://your-domain.com/images/yoga-profile-og.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://your-domain.com/"> <!-- ★★★ REPLACE ★★★ -->
+    <meta property="twitter:url" content="https://your-domain.com/">
     <meta property="twitter:title" content="Yoga Ardiansyah | Full Stack Developer (Web, Mobile, AI/ML)">
     <meta property="twitter:description"
         content="Portfolio of Yoga Ardiansyah, specializing in web, mobile, and AI solutions.">
     <meta property="twitter:image" content="https://your-domain.com/images/yoga-profile-og.jpg">
-    <!-- ★★★ REPLACE ★★★ -->
-    <!-- == End SEO Meta Tags == -->
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <!-- ★★★ Add your Favicon link here -->
+    <script src="assets/css/style.js"></script>
+    <link rel="stylesheet" href="assets/css/hero.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/project.css">
+    <script src="assets/js/nav.js"></script>
     <link rel="icon" href="/favicon.ico">
 
     <style>
@@ -65,78 +63,132 @@
             object-fit: contain;
         }
     </style>
+
 </head>
 
 <body class="bg-gray-900 text-white">
-    <nav class="bg-gray-800 p-4 shadow-md sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl md:text-2xl font-semibold">[Yoga Ardiansyah]</a>
-            <button id="menu-btn" class="block md:hidden focus:outline-none text-white hover:text-blue-400">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
+
+    <nav id="main-nav" class="sticky top-0 z-50 w-full transition-all duration-300 bg-gray-900/80 backdrop-blur-sm shadow-lg">
+        <div class="container relative mx-auto px-4 sm:px-6 flex justify-between items-center h-16">
+
+            <a href="#" class="text-xl md:text-2xl font-orbitron font-semibold tracking-wide group text-white hover:text-cyan-400 transition-colors duration-300">
+                Y<span class="text-cyan-400 group-hover:text-white transition-colors duration-300">/</span>A
+            </a>
+
+            <button id="menu-btn" type="button" aria-label="Toggle Menu" aria-expanded="false" aria-controls="menu-links" class="md:hidden relative z-[51] flex flex-col justify-around w-6 h-6 cursor-pointer focus:outline-none group/burger">
+                <span class="block w-full h-0.5 bg-white rounded transition-transform duration-300 ease-in-out transform group-[.menu-open]/burger:rotate-45 group-[.menu-open]/burger:translate-y-[7px]"></span>
+                <span class="block w-full h-0.5 bg-white rounded mt-1.5 transition-opacity duration-300 ease-in-out group-[.menu-open]/burger:opacity-0"></span>
+                <span class="block w-full h-0.5 bg-white rounded mt-1.5 transition-transform duration-300 ease-in-out transform group-[.menu-open]/burger:-rotate-45 group-[.menu-open]/burger:-translate-y-[7px]"></span>
             </button>
-            <ul id="menu-links" class="hidden md:flex gap-4 md:gap-6 text-sm md:text-base">
-                <li><a href="#about" class="hover:text-blue-400">Tentang</a></li>
-                <li><a href="#skills" class="hover:text-blue-400">Keahlian</a></li>
-                <li><a href="#projects" class="hover:text-blue-400">Projek</a></li>
-                <li><a href="#timeline" class="hover:text-blue-400">Perjalanan</a></li>
-                <li><a href="#experience" class="hover:text-blue-400">Pengalaman</a></li>
-                <li><a href="#articles" class="hover:text-blue-400">Artikel</a></li>
-                <li><a href="#videos" class="hover:text-blue-400">Video</a></li>
-                <li><a href="#certifications" class="hover:text-blue-400">Sertifikasi</a></li>
-                <li><a href="#contact" class="hover:text-blue-400">Kontak</a></li>
+
+            <ul id="menu-links" role="menubar" aria-label="Main Navigation"
+                class="absolute top-full left-0 w-full bg-gray-800 shadow-md z-50
+                       flex flex-col
+                       opacity-0 transform -translate-y-2 scale-95 pointer-events-none
+                       transition-all duration-200 ease-out
+                       md:static md:w-auto md:bg-transparent md:shadow-none md:z-auto md:flex-row md:justify-end md:opacity-100 md:transform-none md:pointer-events-auto md:translate-y-0 md:scale-100
+                       divide-y divide-gray-700 md:divide-y-0
+                       md:gap-3 lg:gap-5 space-y-0">
+
+                <li><a role="menuitem" href="#" class="nav-link-mobile md:nav-link" data-link-id="about"><span>Tentang</span></a></li>
+                <li><a role="menuitem" href="#skills" class="nav-link-mobile md:nav-link" data-link-id="skills"><span>Keahlian</span></a></li>
+                <li><a role="menuitem" href="#projects" class="nav-link-mobile md:nav-link" data-link-id="projects"><span>Projek</span></a></li>
+                <li><a role="menuitem" href="#timeline" class="nav-link-mobile md:nav-link" data-link-id="timeline"><span>Perjalanan</span></a></li>
+                <li><a role="menuitem" href="#experience" class="nav-link-mobile md:nav-link" data-link-id="experience"><span>Pengalaman</span></a></li>
+                <li><a role="menuitem" href="#articles" class="nav-link-mobile md:nav-link" data-link-id="articles"><span>Artikel</span></a></li>
+                <li><a role="menuitem" href="#videos" class="nav-link-mobile md:nav-link" data-link-id="videos"><span>Video</span></a></li>
+                <li><a role="menuitem" href="#certifications" class="nav-link-mobile md:nav-link" data-link-id="certifications"><span>Sertifikasi</span></a></li>
+                <li><a role="menuitem" href="#contact" class="nav-link-mobile md:nav-link" data-link-id="contact"><span>Kontak</span></a></li>
             </ul>
+
         </div>
     </nav>
 
-    <div id="mobile-menu" class="hidden md:hidden bg-gray-700 fixed top-16 right-0 left-0 z-40 shadow-lg">
-        <ul class="flex flex-col items-center divide-y divide-gray-600">
-            <li><a href="#about" class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Tentang</a>
-            </li>
-            <li><a href="#skills"
-                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Keahlian</a></li>
-            <li><a href="#projects"
-                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Projek</a></li>
-            <li><a href="#timeline"
-                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Perjalanan</a></li>
-            <li><a href="#experience"
-                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Pengalaman</a></li>
-            <li><a href="#articles"
-                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Artikel</a></li>
-            <li><a href="#videos" class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Video</a>
-            </li>
-            <li><a href="#certifications"
-                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Sertifikasi</a></li>
-            <li><a href="#contact"
-                    class="hover:bg-gray-600 hover:text-blue-300 block py-3 w-full text-center">Kontak</a></li>
-        </ul>
-    </div>
+    <section
+        class="relative min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-slate-900 to-black text-white py-16 lg:py-24 overflow-hidden">
 
-    
-    <header class="w-full">
-        <section id="hero" class="text-center py-16 px-6">
-            <img src="placeholder-profile.jpg" alt="[Foto Profil Yoga Ardiansyah]"
-                class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full shadow-lg border-4 border-gray-700">
-            <h2 class="text-3xl lg:text-4xl font-bold mt-5">Yoga Ardiansyah</h2>
-            <p class="text-xl text-blue-300 mt-1">Full Stack Developer</p>
-            <p class="text-lg text-gray-400 mt-3 max-w-2xl mx-auto">Membangun aplikasi web, mobile, dan solusi berbasis
-                AI/ML yang inovatif dan efisien.</p>
-        </section>
+        <div class="absolute inset-0 z-0 opacity-10 grid-pattern"></div>
 
-        <section id="about" class="container mx-auto px-6 py-12">
-            <h2 class="text-3xl font-semibold text-center mb-8">Tentang Saya</h2>
-            <div class="max-w-3xl mx-auto text-center text-gray-300 space-y-4 text-lg">
-                <p>[Selamat datang! Saya Yoga Ardiansyah...]</p>
-                <p>[Perjalanan saya di dunia pemrograman dimulai...]</p>
-                <p>[Saya percaya pada pengembangan...]</p>
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <div class="particle" style="width: 3px; height: 3px; left: 10%; top: 20%; animation-delay: 0s;"></div>
+            <div class="particle" style="width: 2px; height: 2px; left: 30%; top: 80%; animation-delay: 1s;"></div>
+            <div class="particle" style="width: 4px; height: 4px; left: 50%; top: 40%; animation-delay: 3s;"></div>
+            <div class="particle" style="width: 3px; height: 3px; left: 70%; top: 60%; animation-delay: 2s;"></div>
+            <div class="particle" style="width: 2px; height: 2px; left: 90%; top: 10%; animation-delay: 4s;"></div>
+            <div class="particle hidden lg:block"
+                style="width: 3px; height: 3px; left: 20%; top: 70%; animation-delay: 1.5s;"></div>
+            <div class="particle hidden lg:block"
+                style="width: 4px; height: 4px; left: 80%; top: 30%; animation-delay: 2.5s;"></div>
+            <div class="particle" style="width: 2px; height: 2px; left: 5%; top: 50%; animation-delay: 5s;"></div>
+            <div class="particle" style="width: 3px; height: 3px; left: 25%; top: 15%; animation-delay: 0.8s;"></div>
+            <div class="particle hidden lg:block"
+                style="width: 2px; height: 2px; left: 45%; top: 90%; animation-delay: 3.8s;"></div>
+            <div class="particle" style="width: 4px; height: 4px; left: 65%; top: 5%; animation-delay: 1.2s;"></div>
+            <div class="particle" style="width: 3px; height: 3px; left: 85%; top: 75%; animation-delay: 4.5s;"></div>
+            <div class="particle hidden lg:block"
+                style="width: 2px; height: 2px; left: 15%; top: 85%; animation-delay: 2.2s;"></div>
+            <div class="particle" style="width: 3px; height: 3px; left: 55%; top: 70%; animation-delay: 0.3s;"></div>
+            <div class="particle" style="width: 2px; height: 2px; left: 95%; top: 45%; animation-delay: 3.3s;"></div>
+            <div class="particle hidden lg:block"
+                style="width: 4px; height: 4px; left: 35%; top: 55%; animation-delay: 4.8s;"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+
+                <div class="lg:col-span-2 flex justify-center lg:justify-center items-center h-full">
+                    <div class="relative opacity-0 apply-fade-in-up w-full max-w-xs sm:max-w-sm lg:max-w-md mx-auto"
+                        style="animation-delay: 0.4s;">
+                        <div class="relative z-10 rounded-lg overflow-hidden shadow-2xl">
+                            <img src="assets/img/person/self.png" alt="Yoga Ardiansyah - Backend & Frontend Developer"
+                                class="w-full h-auto object-cover display-block apply-subtle-drop-glow">
+                        </div>
+                        <div class="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-12 h-12 sm:w-16 sm:h-16 border-l-4 border-t-4 border-teal-500/50 rounded-tl-lg z-20 opacity-0 apply-fade-in-down"
+                            style="animation-delay: 0.8s;"></div>
+                        <div class="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-12 h-12 sm:w-16 sm:h-16 border-r-4 border-b-4 border-cyan-500/50 rounded-br-lg z-20 opacity-0 apply-fade-in-up"
+                            style="animation-delay: 0.9s;"></div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 text-center lg:text-left">
+                    <div class="opacity-0 apply-fade-in" style="animation-delay: 0.2s;">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-3 tracking-tighter">
+                            <span
+                                class="gradient-text-animated bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-500">
+                                Yoga Ardiansyah
+                            </span>
+                        </h1>
+                        <p class="text-xl lg:text-2xl text-cyan-300 font-light font-orbitron tracking-wider mb-6">
+                            Backend <Engineer> /> Frontend Developer
+                        </p>
+                        <p class="text-lg text-gray-300 max-w-xl mx-auto lg:mx-0 mb-8">
+                            Crafting scalable, efficient digital systems from server logic to intuitive interfaces.
+                            Turning complex problems into elegant, high-performance code.
+                        </p>
+                    </div>
+
+                    <div class="opacity-0 apply-fade-in space-y-4 text-gray-400 max-w-xl mx-auto lg:mx-0 text-base lg:text-lg"
+                        style="animation-delay: 0.6s;">
+                        <h2 class="text-2xl font-semibold text-teal-300 font-orbitron mb-3">\\ Behind The Code</h2>
+                        <p>
+                            Deeply invested in architecting robust server-side solutions (<span
+                                class="text-teal-400 font-medium">Node.js</span>, <span
+                                class="text-teal-400 font-medium">Go</span>) while ensuring seamless front-end
+                            integration (<span class="text-cyan-400 font-medium">React</span>, <span
+                                class="text-cyan-400 font-medium">Vue.js</span>).
+                        </p>
+                        <p>
+                            My passion lies in the logic, optimization, and scalability challenges of the backend,
+                            complemented by a commitment to clean, responsive user experiences.
+                        </p>
+                    </div>
+                </div>
+
             </div>
-        </section>
-    </header>
+        </div>
+    </section>
 
-    <section id="skills" class="bg-gray-800 py-16 px-6">
+    <section id="skills" class="py-16 px-6">
         <h2 class="text-3xl font-semibold text-center mb-10">Keahlian Teknis</h2>
         <div class="container mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
@@ -340,161 +392,318 @@
         </div>
     </section>
 
-    <section id="projects" class="container mx-auto px-6 py-16">
-        <h2 class="text-3xl font-semibold text-center mb-10">Projek Unggulan</h2>
+    <section id="projects"
+        class="relative bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900 py-20 lg:py-28 px-4 sm:px-6 overflow-hidden">
+        <div class="container mx-auto relative z-10">
+            <h2
+                class="text-3xl sm:text-4xl font-orbitron font-bold text-center mb-12 lg:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400 animate-fade-in">
+                Featured Projects
+            </h2>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                <div class="project-card group opacity-0 apply-fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="relative w-full aspect-video overflow-hidden rounded-t-lg">
+                        <img src="assets/img/projects/lpccn.png" alt="lpccn Project Screenshot"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105">
+                    </div>
+                    <div class="p-5 md:p-6 flex flex-col flex-grow">
+                        <h3
+                            class="text-xl font-semibold text-cyan-300 mb-2 group-hover:text-cyan-200 transition-colors duration-300">
+                            lpccn - Lion Parcel Legal
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed flex-grow">
+                            Web application development for the legal department needs at Lion Parcel company.
+                        </p>
+                        <div class="mb-4">
+                            <p class="text-gray-500 text-xs uppercase tracking-wider mb-2 font-medium">Tech Stack:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="tech-badge bg-yellow-600/30 text-yellow-200 border-yellow-500/50">React</span>
+                                <span class="tech-badge bg-blue-600/30 text-blue-200 border-blue-500/50">Laravel</span>
+                                <span class="tech-badge bg-green-600/30 text-green-200 border-green-500/50">MySQL</span>
+                            </div>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-700/50 flex justify-end gap-4">
+                            <a href="#" target="_blank" rel="noopener noreferrer" title="View Code on GitHub"
+                                class="project-link text-slate-400 hover:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" title="View Live Demo"
+                                class="project-link text-slate-400 hover:text-cyan-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5" />
+                                    <path fill-rule="evenodd"
+                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card group opacity-0 apply-fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="relative w-full aspect-video overflow-hidden rounded-t-lg">
+                        <img src="assets/img/projects/lpccn.png" alt="lpccn Project Screenshot"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105">
+                    </div>
+                    <div class="p-5 md:p-6 flex flex-col flex-grow">
+                        <h3
+                            class="text-xl font-semibold text-cyan-300 mb-2 group-hover:text-cyan-200 transition-colors duration-300">
+                            lpccn - Lion Parcel Legal
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed flex-grow">
+                            Web application development for the legal department needs at Lion Parcel company.
+                        </p>
+                        <div class="mb-4">
+                            <p class="text-gray-500 text-xs uppercase tracking-wider mb-2 font-medium">Tech Stack:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="tech-badge bg-yellow-600/30 text-yellow-200 border-yellow-500/50">React</span>
+                                <span class="tech-badge bg-blue-600/30 text-blue-200 border-blue-500/50">Laravel</span>
+                                <span class="tech-badge bg-green-600/30 text-green-200 border-green-500/50">MySQL</span>
+                            </div>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-700/50 flex justify-end gap-4">
+                            <a href="#" target="_blank" rel="noopener noreferrer" title="View Code on GitHub"
+                                class="project-link text-slate-400 hover:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" title="View Live Demo"
+                                class="project-link text-slate-400 hover:text-cyan-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5" />
+                                    <path fill-rule="evenodd"
+                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="timeline"
+        class="bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900 py-20 lg:py-28 overflow-hidden">
+        <div class="container mx-auto px-0">
+            <h2
+                class="text-3xl sm:text-4xl font-orbitron font-bold text-center mb-12 lg:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400 px-4 sm:px-6">
+                Career & Learning Journey
+            </h2>
+
             <div
-                class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between hover:shadow-blue-500/30 transition-shadow duration-300">
-                <div>
-                    <img src="assets/img/projects/lpccn.png" alt="lpccn"
-                        class="rounded-md mb-4 w-full h-60 aspect-video object-cover">
-                    <h3 class="text-xl font-semibold text-blue-300">lpccn</h3>
-                    <p class="text-gray-400 mt-2 text-sm">Membuat web apps untuk kebutuhan departemen legal perusahaan
-                        lion parcel</p>
-                    <p class="text-gray-500 mt-3 text-xs uppercase tracking-wider">Teknologi:</p>
-                    <p class="text-sm text-gray-300 mt-3">
-                        <span class="px-2 py-1 bg-yellow-500 text-white rounded-md text-xs">React</span>
-                        <span class="px-2 py-1 bg-blue-500 text-white rounded-md text-xs">Laravel</span>
-                        <span class="px-2 py-1 bg-green-500 text-white rounded-md text-xs">MySQL</span>
+                class="flex gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory px-4 sm:px-6 lg:px-8 pb-8 scroll-smooth scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 hover:scrollbar-thumb-slate-500">
+
+                <div class="snap-center shrink-0 w-72 md:w-80 group timeline-scroll-card border-cyan-600/60">
+                    <span class="timeline-scroll-year text-cyan-300">2018</span>
+                    <h3
+                        class="text-lg font-semibold text-slate-100 group-hover:text-cyan-200 transition-colors duration-300 mb-2">
+                        Learning Foundations
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Started learning programming fundamentals (Python, basic algorithms).
                     </p>
+                </div>
 
-                </div>
-                <div class="mt-4 flex gap-4">
-                    <a href="#" target="_blank" rel="noopener noreferrer"
-                        class="text-blue-400 hover:text-blue-300 inline-block transition-colors duration-200">
-                        </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer"
-                        class="text-gray-400 hover:text-gray-300 inline-block transition-colors duration-200">&emsp;</a>
-                </div>
-            </div>
-            <div
-                class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between hover:shadow-blue-500/30 transition-shadow duration-300">
-                <div>
-                    <img src="assets/img/projects/lpccn.png" alt="lpccn"
-                        class="rounded-md mb-4 w-full h-60 aspect-video object-cover">
-                    <h3 class="text-xl font-semibold text-blue-300">lpccn</h3>
-                    <p class="text-gray-400 mt-2 text-sm">Membuat web apps untuk kebutuhan departemen legal perusahaan
-                        lion parcel</p>
-                    <p class="text-gray-500 mt-3 text-xs uppercase tracking-wider">Teknologi:</p>
-                    <p class="text-sm text-gray-300 mt-3">
-                        <span class="px-2 py-1 bg-yellow-500 text-white rounded-md text-xs">React</span>
-                        <span class="px-2 py-1 bg-blue-500 text-white rounded-md text-xs">Laravel</span>
-                        <span class="px-2 py-1 bg-green-500 text-white rounded-md text-xs">MySQL</span>
+                <div class="snap-center shrink-0 w-72 md:w-80 group timeline-scroll-card border-teal-600/60">
+                    <span class="timeline-scroll-year text-teal-300">2020</span>
+                    <h3
+                        class="text-lg font-semibold text-slate-100 group-hover:text-teal-200 transition-colors duration-300 mb-2">
+                        First Static Website
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Built first static websites using HTML, CSS, and vanilla JavaScript.
                     </p>
+                </div>
 
-                </div>
-                <div class="mt-4 flex gap-4">
-                    <a href="#" target="_blank" rel="noopener noreferrer"
-                        class="text-blue-400 hover:text-blue-300 inline-block transition-colors duration-200">
-                        </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer"
-                        class="text-gray-400 hover:text-gray-300 inline-block transition-colors duration-200">&emsp;</a>
-                </div>
-            </div>
-            <div
-                class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between hover:shadow-blue-500/30 transition-shadow duration-300">
-                <div>
-                    <img src="assets/img/projects/lpccn.png" alt="lpccn"
-                        class="rounded-md mb-4 w-full h-60 aspect-video object-cover">
-                    <h3 class="text-xl font-semibold text-blue-300">lpccn</h3>
-                    <p class="text-gray-400 mt-2 text-sm">Membuat web apps untuk kebutuhan departemen legal perusahaan
-                        lion parcel</p>
-                    <p class="text-gray-500 mt-3 text-xs uppercase tracking-wider">Teknologi:</p>
-                    <p class="text-sm text-gray-300 mt-3">
-                        <span class="px-2 py-1 bg-yellow-500 text-white rounded-md text-xs">React</span>
-                        <span class="px-2 py-1 bg-blue-500 text-white rounded-md text-xs">Laravel</span>
-                        <span class="px-2 py-1 bg-green-500 text-white rounded-md text-xs">MySQL</span>
+                <div class="snap-center shrink-0 w-72 md:w-80 group timeline-scroll-card border-amber-600/60">
+                    <span class="timeline-scroll-year text-amber-300">2022</span>
+                    <h3
+                        class="text-lg font-semibold text-slate-100 group-hover:text-amber-200 transition-colors duration-300 mb-2">
+                        Exploring ML/AI
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Took introductory courses in Machine Learning and experimented with tools.
                     </p>
-
                 </div>
-                <div class="mt-4 flex gap-4">
-                    <a href="#" target="_blank" rel="noopener noreferrer"
-                        class="text-blue-400 hover:text-blue-300 inline-block transition-colors duration-200">
-                        </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer"
-                        class="text-gray-400 hover:text-gray-300 inline-block transition-colors duration-200">&emsp;</a>
+
+                <div class="snap-center shrink-0 w-72 md:w-80 group timeline-scroll-card border-purple-600/60">
+                    <span class="timeline-scroll-year text-purple-300">2024</span>
+                    <h3
+                        class="text-lg font-semibold text-slate-100 group-hover:text-purple-200 transition-colors duration-300 mb-2">
+                        Project Development
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Developed [Type of application] using [Key Tech]. Gained deployment experience.
+                    </p>
                 </div>
+
+                <div
+                    class="snap-center shrink-0 w-72 md:w-80 group timeline-scroll-card border-slate-600/60 hover:border-slate-500/60">
+                    <span class="timeline-scroll-year text-slate-500">Next Steps</span>
+                    <h3
+                        class="text-lg font-semibold text-slate-300 group-hover:text-slate-100 transition-colors duration-300 mb-2">
+                        Future Goals
+                    </h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        Focusing on [Next skill/area] and aiming for [Career goal].
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="timeline" class="bg-gray-800 py-16">
-        <h2 class="text-3xl font-semibold text-center mb-10">Perjalanan Karier & Pembelajaran</h2>
-        <div class="flex gap-6 mt-6 overflow-x-auto snap-x snap-mandatory px-6 pb-6 scroll-smooth">
-            <div class="snap-center shrink-0 bg-blue-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
-                <h3 class="text-xl font-bold">2018</h3>
-                <p class="text-gray-100 mt-1">[Mulai belajar dasar pemrograman (Mis: Python & algoritma dasar).]</p>
-            </div>
-            <div class="snap-center shrink-0 bg-green-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
-                <h3 class="text-xl font-bold">2020</h3>
-                <p class="text-gray-100 mt-1">[Membangun website statis pertama (HTML, CSS, JS)...]</p>
-            </div>
-            <div class="snap-center shrink-0 bg-yellow-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
-                <h3 class="text-xl font-bold">2022</h3>
-                <p class="text-gray-100 mt-1">[Mengikuti kursus ML (Mis: Coursera Andrew Ng)...]</p>
-            </div>
-            <div class="snap-center shrink-0 bg-purple-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
-                <h3 class="text-xl font-bold">2024</h3>
-                <p class="text-gray-100 mt-1">[Mengembangkan aplikasi [Sebutkan tipe, mis: AI]... ]</p>
-            </div>
-            <div class="snap-center shrink-0 bg-red-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
-                <h3 class="text-xl font-bold">[Tahun Berikutnya?]</h3>
-                <p class="text-gray-100 mt-1">[Tujuan atau pencapaian berikutnya?]</p>
-            </div>
-            <div class="snap-center shrink-0 bg-red-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
-                <h3 class="text-xl font-bold">[Tahun Berikutnya?]</h3>
-                <p class="text-gray-100 mt-1">[Tujuan atau pencapaian berikutnya?]</p>
-            </div>
-            <div class="snap-center shrink-0 bg-red-600 p-6 rounded-lg shadow-lg w-64 md:w-72 text-center">
-                <h3 class="text-xl font-bold">[Tahun Berikutnya?]</h3>
-                <p class="text-gray-100 mt-1">[Tujuan atau pencapaian berikutnya?]</p>
+
+    <section id="experience"
+        class="bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900 py-20 lg:py-28 px-4 sm:px-6">
+        <div class="container mx-auto">
+            <h2
+                class="text-3xl sm:text-4xl font-orbitron font-bold text-center mb-12 lg:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">
+                Professional Experience
+            </h2>
+            <div class="max-w-3xl mx-auto space-y-10 md:space-y-12">
+
+                <div
+                    class="relative pl-8 sm:pl-12 py-4 border-l-4 border-cyan-500/50 transition duration-300 hover:border-cyan-400">
+                    <div class="absolute top-5 -left-[9px] w-4 h-4 rounded-full bg-cyan-500 border-2 border-slate-900">
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                        <h3 class="text-lg sm:text-xl font-semibold text-cyan-300">
+                            Freelance Full Stack Developer
+                        </h3>
+                        <p class="text-xs sm:text-sm font-medium text-slate-400">
+                            2021 - Present
+                        </p>
+                    </div>
+                    <ul class="list-disc pl-5 space-y-2 marker:text-cyan-400">
+                        <li class="text-sm text-slate-300 leading-relaxed">
+                            Developed and maintained full-stack web applications for various clients using React,
+                            Laravel, and MySQL.
+                        </li>
+                        <li class="text-sm text-slate-300 leading-relaxed">
+                            Designed responsive user interfaces focusing on optimal user experience across devices.
+                        </li>
+                        <li class="text-sm text-slate-300 leading-relaxed">
+                            Collaborated with clients to define project requirements and deliverables.
+                        </li>
+                    </ul>
+                </div>
+
+                <div
+                    class="relative pl-8 sm:pl-12 py-4 border-l-4 border-teal-500/50 transition duration-300 hover:border-teal-400">
+                    <div class="absolute top-5 -left-[9px] w-4 h-4 rounded-full bg-teal-500 border-2 border-slate-900">
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                        <h3 class="text-lg sm:text-xl font-semibold text-teal-300">
+                            Independent AI Researcher
+                        </h3>
+                        <p class="text-xs sm:text-sm font-medium text-slate-400">
+                            2022 - Present
+                        </p>
+                    </div>
+                    <ul class="list-disc pl-5 space-y-2 marker:text-teal-400">
+                        <li class="text-sm text-slate-300 leading-relaxed">
+                            Explored deep learning techniques using Python, PyTorch, and TensorFlow for computer vision
+                            tasks.
+                        </li>
+                        <li class="text-sm text-slate-300 leading-relaxed">
+                            Published findings on [Specific Platform/Blog] regarding model optimization strategies.
+                        </li>
+                    </ul>
+                </div>
+
+                <div
+                    class="relative pl-8 sm:pl-12 py-4 border-l-4 border-amber-500/50 transition duration-300 hover:border-amber-400">
+                    <div class="absolute top-5 -left-[9px] w-4 h-4 rounded-full bg-amber-500 border-2 border-slate-900">
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                        <h3 class="text-lg sm:text-xl font-semibold text-amber-300">
+                            Tech Startup Co-Founder (Bootstrapped)
+                        </h3>
+                        <p class="text-xs sm:text-sm font-medium text-slate-400">
+                            2019 - 2021
+                        </p>
+                    </div>
+                    <ul class="list-disc pl-5 space-y-2 marker:text-amber-400">
+                        <li class="text-sm text-slate-300 leading-relaxed">
+                            Led the technical development of an MVP using Django and Vue.js.
+                        </li>
+                        <li class="text-sm text-slate-300 leading-relaxed">
+                            Managed product roadmap and user feedback implementation cycles.
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
-
     </section>
 
-    <section id="experience" class="container mx-auto px-6 py-16">
-        <h2 class="text-3xl font-semibold text-center mb-10">Pengalaman Profesional</h2>
-        <div class="max-w-4xl mx-auto space-y-8">
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 class="text-xl font-semibold text-blue-300">[Posisi - Mis: Freelance Full Stack Developer]</h3>
-                <p class="text-gray-400 text-sm">[Periode - Mis: 2021 - Sekarang]</p>
-                <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
-                    <li>[Deskripsikan tanggung jawab/pencapaian spesifik...]</li>
-                    <li>[Deskripsikan proyek lain...]</li>
-                </ul>
-            </div>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 class="text-xl font-semibold text-green-300">[Posisi - Mis: Independent AI Researcher...]</h3>
-                <p class="text-gray-400 text-sm">[Periode - Mis: 2022 - Sekarang]</p>
-                <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
-                    <li>[Deskripsikan penelitian/kontribusi...]</li>
-                </ul>
-            </div>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 class="text-xl font-semibold text-yellow-300">[Pengalaman Lain - Mis: Peserta Coding Camp...]</h3>
-                <p class="text-gray-400 text-sm">[Periode - Mis: [Bulan, Tahun]]</p>
-                <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
-                    <li>[Deskripsikan pengalaman...]</li>
-                </ul>
+    <section id="testimonials"
+        class="bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900 py-20 lg:py-28 px-4 sm:px-6">
+        <div class="container mx-auto">
+            <h2
+                class="text-3xl sm:text-4xl font-orbitron font-bold text-center mb-12 lg:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">
+                What Others Say
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <blockquote
+                    class="relative bg-gray-800/60 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-slate-700/40 transition duration-300 ease-out hover:border-cyan-600/60 hover:shadow-cyan-500/15 hover:shadow-xl hover:-translate-y-1">
+                    <svg class="absolute top-4 left-4 w-8 h-8 text-cyan-500/30" fill="currentColor" viewBox="0 0 32 32"
+                        aria-hidden="true">
+                        <path
+                            d="M9.333 6H4c-1.107 0-2 .893-2 2v5.333c0 1.107.893 2 2 2h5.333c1.107 0 2-.893 2-2V8c0-1.107-.893-2-2-2zm0 7.333H4V8h5.333v5.333zM28 6h-5.333c-1.107 0-2 .893-2 2v5.333c0 1.107.893 2 2 2H28c1.107 0 2-.893 2-2V8c0-1.107-.893-2-2-2zm0 7.333h-5.333V8H28v5.333z">
+                        </path>
+                    </svg>
+
+                    <div class="relative z-10 pl-2 pt-4">
+                        <p class="text-slate-200 italic leading-relaxed mb-5">
+                            "Yoga consistently delivered high-quality code and was instrumental in architecting scalable
+                            backend solutions for our project. His ability to tackle complex problems is impressive."
+                        </p>
+                        <footer class="text-sm text-right">
+                            <span class="block font-semibold text-cyan-300">Jane Doe</span>
+                            <cite class="not-italic text-slate-400">Lead Engineer, Project X</cite>
+                        </footer>
+                    </div>
+                </blockquote>
+
+                <blockquote
+                    class="relative bg-gray-800/60 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-slate-700/40 transition duration-300 ease-out hover:border-teal-600/60 hover:shadow-teal-500/15 hover:shadow-xl hover:-translate-y-1">
+                    <svg class="absolute top-4 left-4 w-8 h-8 text-teal-500/30" fill="currentColor" viewBox="0 0 32 32"
+                        aria-hidden="true">
+                        <path
+                            d="M9.333 6H4c-1.107 0-2 .893-2 2v5.333c0 1.107.893 2 2 2h5.333c1.107 0 2-.893 2-2V8c0-1.107-.893-2-2-2zm0 7.333H4V8h5.333v5.333zM28 6h-5.333c-1.107 0-2 .893-2 2v5.333c0 1.107.893 2 2 2H28c1.107 0 2-.893 2-2V8c0-1.107-.893-2-2-2zm0 7.333h-5.333V8H28v5.333z">
+                        </path>
+                    </svg>
+                    <div class="relative z-10 pl-2 pt-4">
+                        <p class="text-slate-200 italic leading-relaxed mb-5">
+                            "Working with Yoga on the frontend was a great experience. He has a keen eye for detail and
+                            translates design mockups into clean, functional code efficiently."
+                        </p>
+                        <footer class="text-sm text-right">
+                            <span class="block font-semibold text-teal-300">John Smith</span>
+                            <cite class="not-italic text-slate-400">Product Manager, Startup Y</cite>
+                        </footer>
+                    </div>
+                </blockquote>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="bg-gray-800 py-16 px-6">
-        <h2 class="text-3xl font-semibold text-center mb-10">Testimoni</h2>
-        <div class="container mx-auto grid md:grid-cols-2 gap-8 max-w-4xl">
-            <blockquote class="bg-gray-900 p-6 rounded-lg shadow-lg border-l-4 border-blue-500">
-                <p class="text-gray-300 italic">"[Kutipan testimoni...]"</p>
-                <footer class="mt-4 text-sm text-gray-400"> — [Nama], <cite>[Jabatan/Perusahaan]</cite></footer>
-            </blockquote>
-            <blockquote class="bg-gray-900 p-6 rounded-lg shadow-lg border-l-4 border-green-500">
-                <p class="text-gray-300 italic">"[Kutipan lain...]"</p>
-                <footer class="mt-4 text-sm text-gray-400"> — [Nama Lain], <cite>[Jabatan/Perusahaan]</cite></footer>
-            </blockquote>
-        </div>
-    </section>
 
     <section id="education" class="container mx-auto px-6 py-16">
         <h2 class="text-3xl font-semibold text-center mb-10">Pendidikan</h2>
@@ -508,89 +717,298 @@
         </div>
     </section>
 
-    <section id="articles" class="bg-gray-800 py-16 px-6">
-        <h2 class="text-3xl font-semibold text-center mb-10">Artikel Terbaru</h2>
-        <div class="container mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-blue-500/30 transition-shadow duration-300">
-                <h3 class="text-xl font-semibold">[Judul Artikel 1...]</h3>
-                <p class="text-gray-400 mt-2">[Deskripsi singkat...]</p>
+    <section id="articles" class="bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900 py-20 lg:py-28 px-4 sm:px-6">
+        <div class="container mx-auto">
+            <h2
+                class="text-3xl sm:text-4xl font-orbitron font-bold text-center mb-12 lg:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">
+                Latest Articles
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
                 <a href="#" target="_blank" rel="noopener noreferrer"
-                    class="text-blue-400 mt-3 inline-block hover:text-blue-300">Baca Selengkapnya →</a>
+                    class="block group bg-gray-800/60 backdrop-blur-sm rounded-lg shadow-lg border border-slate-700/40 overflow-hidden transition-all duration-300 ease-out hover:border-cyan-600/60 hover:shadow-cyan-500/15 hover:shadow-xl hover:-translate-y-1">
+                    <div class="p-5 md:p-6">
+                        <h3
+                            class="text-lg font-semibold text-slate-100 group-hover:text-cyan-300 mb-2 transition-colors duration-300">
+                            Optimizing Database Queries in Laravel
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed line-clamp-3 mb-4">
+                            A deep dive into common pitfalls and effective strategies for speeding up database
+                            interactions within your Laravel applications, covering indexing, Eloquent techniques, and
+                            raw query optimization...
+                        </p>
+                        <span
+                            class="inline-flex items-center text-sm font-medium text-cyan-400 group-hover:text-cyan-300 transition-colors duration-300">
+                            Read More
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1">
+                                <path fill-rule="evenodd"
+                                    d="M10.21 14.77a.75.75 0 01.02-1.06L14.168 10 10.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                    clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M4.21 14.77a.75.75 0 01.02-1.06L8.168 10 4.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="block group bg-gray-800/60 backdrop-blur-sm rounded-lg shadow-lg border border-slate-700/40 overflow-hidden transition-all duration-300 ease-out hover:border-teal-600/60 hover:shadow-teal-500/15 hover:shadow-xl hover:-translate-y-1">
+                    <div class="p-5 md:p-6">
+                        <h3
+                            class="text-lg font-semibold text-slate-100 group-hover:text-teal-300 mb-2 transition-colors duration-300">
+                            State Management Choices in Modern React
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed line-clamp-3 mb-4">
+                            Comparing Zustand, Redux Toolkit, Jotai, and Context API for different project scales and
+                            complexities. Understanding trade-offs and best use cases for each state management
+                            library...
+                        </p>
+                        <span
+                            class="inline-flex items-center text-sm font-medium text-teal-400 group-hover:text-teal-300 transition-colors duration-300">
+                            Read More
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1">
+                                <path fill-rule="evenodd"
+                                    d="M10.21 14.77a.75.75 0 01.02-1.06L14.168 10 10.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                    clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M4.21 14.77a.75.75 0 01.02-1.06L8.168 10 4.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="block group bg-gray-800/60 backdrop-blur-sm rounded-lg shadow-lg border border-slate-700/40 overflow-hidden transition-all duration-300 ease-out hover:border-purple-600/60 hover:shadow-purple-500/15 hover:shadow-xl hover:-translate-y-1">
+                    <div class="p-5 md:p-6">
+                        <h3
+                            class="text-lg font-semibold text-slate-100 group-hover:text-purple-300 mb-2 transition-colors duration-300">
+                            Getting Started with Docker for Web Developers
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed line-clamp-3 mb-4">
+                            A practical guide to containerizing your development environment using Docker, covering
+                            Dockerfiles, docker-compose, and basic container management for easier deployment and
+                            consistency...
+                        </p>
+                        <span
+                            class="inline-flex items-center text-sm font-medium text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
+                            Read More
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1">
+                                <path fill-rule="evenodd"
+                                    d="M10.21 14.77a.75.75 0 01.02-1.06L14.168 10 10.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                    clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M4.21 14.77a.75.75 0 01.02-1.06L8.168 10 4.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
             </div>
         </div>
     </section>
 
-    <!-- <section id="videos" class="container mx-auto px-6 py-16">
-        <h2 class="text-3xl font-semibold text-center mb-10">Tutorial Video</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
-                <iframe class="w-full h-48 rounded-md" src="https://www.youtube.com/embed/Ke90Tje7VS0" ...></iframe>
-                <h3 class="text-lg font-semibold mt-3">[Judul Video 1...]</h3>
-            </div>
-        </div>
-    </section> -->
 
-    <!-- <section id="certifications" class="bg-gray-800 py-16 px-6">
-        <h2 class="text-3xl font-semibold text-center mb-10">Sertifikasi</h2>
-        <div class="container mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center">
-                <h3 class="text-xl font-semibold text-blue-300">[Nama Sertifikasi 1...]</h3>
-                <p class="text-gray-400 mt-2">[Lembaga...]</p>
-            </div>
-        </div>
-    </section> -->
+    <section id="videos" class="bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900 py-20 lg:py-28 px-4 sm:px-6">
+        <div class="container mx-auto">
+            <h2
+                class="text-3xl sm:text-4xl font-orbitron font-bold text-center mb-12 lg:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">
+                Tutorial Videos
+            </h2>
 
-    <section id="contact" class="container mx-auto px-6 py-16 text-center">
-        <h2 class="text-3xl font-semibold">Hubungi Saya</h2>
-        <p class="text-gray-400 mt-3 max-w-lg mx-auto">[Mari terhubung!...]</p>
-        <div class="flex flex-wrap justify-center gap-4 mt-8">
-            <a href="#" target="_blank" rel="noopener noreferrer"
-                class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg shadow-lg transition-colors duration-200 font-semibold">LinkedIn</a>
-            <a href="#" target="_blank" rel="noopener noreferrer"
-                class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg shadow-lg transition-colors duration-200 font-semibold">GitHub</a>
-            <a href="mailto:[your.email@example.com]"
-                class="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-lg shadow-lg transition-colors duration-200 font-semibold">Email</a>
-            <a href="https://wa.me/[YourWhatsAppNumber]" target="_blank" rel="noopener noreferrer"
-                class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg shadow-lg transition-colors duration-200 font-semibold">WhatsApp</a>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                <div class="video-card bg-gray-800/60 backdrop-blur-sm rounded-lg shadow-lg border border-slate-700/40 overflow-hidden transition-all duration-300 ease-out hover:border-cyan-600/60 hover:shadow-cyan-500/15 hover:shadow-xl hover:-translate-y-1 opacity-0 apply-fade-in-up"
+                    style="animation-delay: 0.1s;">
+                    <div class="aspect-video bg-black">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Ke90Tje7VS0"
+                            title="Introduction to the Go Fiber Web Framework" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="p-4">
+                        <h3
+                            class="text-base font-medium text-slate-200 line-clamp-2 group-hover:text-cyan-300 transition-colors duration-300">
+                            Introduction to the Go Fiber Web Framework
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="video-card bg-gray-800/60 backdrop-blur-sm rounded-lg shadow-lg border border-slate-700/40 overflow-hidden transition-all duration-300 ease-out hover:border-teal-600/60 hover:shadow-teal-500/15 hover:shadow-xl hover:-translate-y-1 opacity-0 apply-fade-in-up"
+                    style="animation-delay: 0.2s;">
+                    <div class="aspect-video bg-black">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/xxxxxxx"
+                            title="Placeholder Video Title Two" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="p-4">
+                        <h3
+                            class="text-base font-medium text-slate-200 line-clamp-2 group-hover:text-teal-300 transition-colors duration-300">
+                            Placeholder Video Title Two
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="video-card bg-gray-800/60 backdrop-blur-sm rounded-lg shadow-lg border border-slate-700/40 overflow-hidden transition-all duration-300 ease-out hover:border-purple-600/60 hover:shadow-purple-500/15 hover:shadow-xl hover:-translate-y-1 opacity-0 apply-fade-in-up"
+                    style="animation-delay: 0.3s;">
+                    <div class="aspect-video bg-black">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/yyyyyyy"
+                            title="Placeholder Video Title Three" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="p-4">
+                        <h3
+                            class="text-base font-medium text-slate-200 line-clamp-2 group-hover:text-purple-300 transition-colors duration-300">
+                            Placeholder Video Title Three
+                        </h3>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <footer class="text-center py-6 bg-gray-800 border-t border-gray-700">
-        <p class="text-gray-500 text-sm">© 2024 Yoga Ardiansyah - All Rights Reserved</p>
+    <section id="certifications"
+        class="bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900 py-20 lg:py-28 px-4 sm:px-6">
+        <div class="container mx-auto">
+            <h2
+                class="text-3xl sm:text-4xl font-orbitron font-bold text-center mb-12 lg:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">
+                Certifications & Awards
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="certification-card group flex flex-col items-center text-center bg-gray-800/60 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-slate-700/40 transition-all duration-300 ease-out hover:border-blue-600/60 hover:shadow-blue-500/15 hover:shadow-xl hover:-translate-y-1 opacity-0 apply-fade-in-up"
+                    style="animation-delay: 0.1s;">
+                    <div
+                        class="mb-4 p-3 rounded-full bg-blue-500/10 border border-blue-500/30 transition-colors duration-300 group-hover:border-blue-500/50 group-hover:bg-blue-500/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            class="w-8 h-8 text-blue-300">
+                            <path fill-rule="evenodd"
+                                d="M15.61 4.89a.75.75 0 00-1.016-.087l-6.96 4.875-.104-.01a12.25 12.25 0 00-3.374-3.725.75.75 0 00-.805.067L1.075 9.471a.75.75 0 00.75 1.299l1.195-.692a10.752 10.752 0 013.336 3.426l-.86.616a.75.75 0 00-.633 1.261l1.402 2.073a.75.75 0 001.26-.85l-.684-.97a10.749 10.749 0 015.537-5.537l.97.684a.75.75 0 00.85-1.26l-2.074-1.403a.75.75 0 00-1.26.633l.615.86a10.747 10.747 0 01-3.425-3.335l.692-1.195a.75.75 0 00-.067-.805l-3.3-2.29z"
+                                clip-rule="evenodd" />
+                            <path
+                                d="M12.908 9.658a2.251 2.251 0 113.184-3.183 2.251 2.251 0 01-3.184 3.183zm2.342-.842a.75.75 0 00-1.06-1.061.75.75 0 001.06 1.06zm-2.086-.248a.75.75 0 00-1.06 1.06.75.75 0 001.06-1.06z" />
+                        </svg>
+                    </div>
+
+                    <h3
+                        class="text-base font-semibold text-blue-200 mb-1 flex-grow group-hover:text-blue-100 transition-colors duration-300">
+                        Certified Kubernetes Application Developer (CKAD)
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-auto">
+                        The Linux Foundation
+                    </p>
+                </a>
+
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="certification-card group flex flex-col items-center text-center bg-gray-800/60 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-slate-700/40 transition-all duration-300 ease-out hover:border-green-600/60 hover:shadow-green-500/15 hover:shadow-xl hover:-translate-y-1 opacity-0 apply-fade-in-up"
+                    style="animation-delay: 0.2s;">
+                    <div
+                        class="mb-4 p-3 rounded-full bg-green-500/10 border border-green-500/30 transition-colors duration-300 group-hover:border-green-500/50 group-hover:bg-green-500/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            class="w-8 h-8 text-green-300">
+                            <path fill-rule="evenodd"
+                                d="M15.61 4.89a.75.75 0 00-1.016-.087l-6.96 4.875-.104-.01a12.25 12.25 0 00-3.374-3.725.75.75 0 00-.805.067L1.075 9.471a.75.75 0 00.75 1.299l1.195-.692a10.752 10.752 0 013.336 3.426l-.86.616a.75.75 0 00-.633 1.261l1.402 2.073a.75.75 0 001.26-.85l-.684-.97a10.749 10.749 0 015.537-5.537l.97.684a.75.75 0 00.85-1.26l-2.074-1.403a.75.75 0 00-1.26.633l.615.86a10.747 10.747 0 01-3.425-3.335l.692-1.195a.75.75 0 00-.067-.805l-3.3-2.29z"
+                                clip-rule="evenodd" />
+                            <path
+                                d="M12.908 9.658a2.251 2.251 0 113.184-3.183 2.251 2.251 0 01-3.184 3.183zm2.342-.842a.75.75 0 00-1.06-1.061.75.75 0 001.06 1.06zm-2.086-.248a.75.75 0 00-1.06 1.06.75.75 0 001.06-1.06z" />
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-base font-semibold text-green-200 mb-1 flex-grow group-hover:text-green-100 transition-colors duration-300">
+                        AWS Certified Developer - Associate
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-auto">
+                        Amazon Web Services
+                    </p>
+                </a>
+
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="certification-card group flex flex-col items-center text-center bg-gray-800/60 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-slate-700/40 transition-all duration-300 ease-out hover:border-yellow-600/60 hover:shadow-yellow-500/15 hover:shadow-xl hover:-translate-y-1 opacity-0 apply-fade-in-up"
+                    style="animation-delay: 0.3s;">
+                    <div
+                        class="mb-4 p-3 rounded-full bg-yellow-500/10 border border-yellow-500/30 transition-colors duration-300 group-hover:border-yellow-500/50 group-hover:bg-yellow-500/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            class="w-8 h-8 text-yellow-300">
+                            <path fill-rule="evenodd"
+                                d="M15.61 4.89a.75.75 0 00-1.016-.087l-6.96 4.875-.104-.01a12.25 12.25 0 00-3.374-3.725.75.75 0 00-.805.067L1.075 9.471a.75.75 0 00.75 1.299l1.195-.692a10.752 10.752 0 013.336 3.426l-.86.616a.75.75 0 00-.633 1.261l1.402 2.073a.75.75 0 001.26-.85l-.684-.97a10.749 10.749 0 015.537-5.537z" />
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-base font-semibold text-yellow-200 mb-1 flex-grow group-hover:text-yellow-100 transition-colors duration-300">
+                        Google Cloud Certified - Professional Data Engineer
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-auto">
+                        Google Cloud
+                    </p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact"
+        class="relative bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900 py-20 lg:py-28 px-4 sm:px-6 text-center">
+        <div class="container mx-auto relative z-10">
+            <h2
+                class="text-3xl sm:text-4xl font-orbitron font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">
+                Get In Touch
+            </h2>
+            <p class="text-slate-400 mt-3 max-w-xl mx-auto leading-relaxed">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                Let's connect!
+            </p>
+
+            <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-10 lg:mt-12">
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="contact-button bg-sky-600 hover:bg-sky-500 text-white border-sky-700 hover:border-sky-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                        <path
+                            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
+
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="contact-button bg-slate-700 hover:bg-slate-600 text-white border-slate-800 hover:border-slate-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+
+                <a href="mailto:[your.email@example.com]"
+                    class="contact-button bg-rose-600 hover:bg-rose-500 text-white border-rose-700 hover:border-rose-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                        <path
+                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm9.303-.55L16 4.697v7.104z" />
+                    </svg>
+                    <span>Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-6 bg-slate-900 border-t border-slate-700/50 mt-auto">
+        <p class="text-slate-500 text-sm">
+            © 2024 Yoga Ardiansyah - All Rights Reserved
+        </p>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuBtn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            // Select all links within the mobile menu for closing functionality
-            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-
-            if (menuBtn && mobileMenu) {
-                menuBtn.addEventListener('click', () => {
-                    // Toggle the 'hidden' class provided by Tailwind
-                    mobileMenu.classList.toggle('hidden');
-
-                    // Optional: Toggle aria-expanded attribute for accessibility
-                    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true' || false;
-                    menuBtn.setAttribute('aria-expanded', !isExpanded);
-                });
-
-                // Add event listener to each link within the mobile menu
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        // Check if the mobile menu is currently shown before hiding it
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                            menuBtn.setAttribute('aria-expanded', 'false'); // Reset aria attribute
-                        }
-                    });
-                });
-            } else {
-                console.error("Mobile menu button or menu container not found!");
-            }
-        });
-    </script>
 
 </body>
 

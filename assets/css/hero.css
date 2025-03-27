@@ -1,0 +1,172 @@
+/*====================================*/
+/* Keyframes                      */
+/*====================================*/
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes textClip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(10px) translateX(-15px);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-10px) translateX(10px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.7;
+  }
+}
+
+@keyframes backgroundGridPulse {
+  0% {
+    opacity: 0.08;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes subtleDropGlow {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(79, 70, 229, 0.4));
+  }
+  100% {
+    filter: drop-shadow(0 0 15px rgba(20, 184, 166, 0.5));
+  }
+}
+
+/*====================================*/
+/* Animation Application Classes    */
+/*====================================*/
+
+.apply-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.apply-fade-in-down {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.apply-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.apply-subtle-drop-glow {
+  animation: subtleDropGlow 3s ease-in-out infinite alternate;
+}
+
+/*====================================*/
+/* Specific Component Styles        */
+/*====================================*/
+
+.gradient-text-animated {
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  @apply text-transparent bg-clip-text;
+}
+
+.grid-pattern {
+  background-image: linear-gradient(
+      to right,
+      rgba(55, 65, 81, 0.3) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(55, 65, 81, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: backgroundGridPulse 10s linear infinite alternate;
+}
+
+.particle {
+  position: absolute;
+  background-color: rgba(0, 255, 255, 0.5);
+  border-radius: 50%;
+  animation-name: particleFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 25s;
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.6);
+}
+
+.particle:nth-child(5n) {
+  animation-duration: 30s;
+  background-color: rgba(45, 212, 191, 0.5);
+  box-shadow: 0 0 5px rgba(45, 212, 191, 0.6);
+}
+
+.particle:nth-child(3n) {
+  animation-duration: 20s;
+}
+
+/*====================================*/
+/* Utilities                        */
+/*====================================*/
+
+.display-block {
+  display: block;
+}
+
+/*====================================*/
+/* Responsive Styles                */
+/*====================================*/
+
+@media (max-width: 1024px) {
+  .particle {
+    opacity: 0.5 !important;
+  }
+
+  .grid-pattern {
+    background-size: 30px 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .particle {
+    opacity: 0.4 !important;
+  }
+}

@@ -1,0 +1,61 @@
+/*====================================*/
+/* Keyframes                      */
+/*====================================*/
+/* Keep existing keyframes (fadeInUp, etc.) */
+
+/*====================================*/
+/* Animation Application Classes    */
+/*====================================*/
+/* Keep apply-fade-in-up, etc. */
+
+/*====================================*/
+/* Specific Component Styles        */
+/*====================================*/
+
+/* Project Card Styling */
+.project-card {
+  @apply flex flex-col bg-gray-800/60 backdrop-blur-sm border border-slate-700/40 rounded-lg shadow-lg overflow-hidden
+           transition-all duration-300 ease-out
+           hover:border-cyan-600/60 hover:shadow-cyan-500/20 hover:shadow-2xl hover:-translate-y-2;
+}
+
+/* Tech Badge Styling */
+.tech-badge {
+  @apply inline-block text-xs font-medium px-2.5 py-0.5 rounded-full border;
+  /* Uses specific bg/text/border colors applied inline */
+}
+
+/* Project Link Styling */
+.project-link {
+  @apply inline-block p-1 rounded-md transition-colors duration-200; /* Add padding for larger tap area */
+}
+.project-link:hover {
+  /* Colors applied via hover:text-* utilities */
+  @apply bg-slate-700/50; /* Subtle background on hover */
+}
+.project-link svg {
+  @apply w-5 h-5; /* Consistent icon size */
+}
+
+/* Optional: Section specific adjustments */
+#projects h2 {
+  /* Add any specific overrides for the heading */
+}
+
+/*====================================*/
+/* Utilities                        */
+/*====================================*/
+/* Keep existing utilities if needed */
+
+/*====================================*/
+/* Responsive Styles                */
+/*====================================*/
+@media (max-width: 767px) {
+  /* Below md */
+  .project-card .p-5 {
+    /* Adjust padding slightly for smaller screens if md:p-6 is used */
+    @apply p-4;
+  }
+}
+
+/* Other general responsive styles should be handled by Tailwind grid */

@@ -1,0 +1,101 @@
+/*====================================*/
+/* Keyframes                      */
+/*====================================*/
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes subtleDropGlow {
+    0% { filter: drop-shadow(0 0 8px rgba(79, 70, 229, 0.4)); }
+    100% { filter: drop-shadow(0 0 15px rgba(20, 184, 166, 0.5)); }
+}
+@keyframes slideInStagger {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/*====================================*/
+/* Animation Application Classes    */
+/*====================================*/
+.apply-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+.apply-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+}
+.apply-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+.apply-subtle-drop-glow {
+     animation: subtleDropGlow 3s ease-in-out infinite alternate;
+}
+
+/*====================================*/
+/* Specific Component Styles        */
+/*====================================*/
+#menu-links.mobile-menu-open {
+    @apply opacity-100 transform translate-y-0 scale-100 pointer-events-auto;
+}
+
+.nav-link {
+  @apply relative block px-3 py-2 text-base font-medium text-gray-300 hover:text-cyan-400 transition-colors duration-300;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: theme("colors.cyan.400");
+  transition: width 0.3s ease-out;
+}
+.nav-link:hover::after,
+.nav-link.active-link::after {
+  width: 60%;
+}
+.nav-link.active-link {
+  @apply text-cyan-400;
+}
+
+.nav-link-mobile {
+  @apply block w-full py-3 px-4 text-center text-gray-200 hover:bg-gray-700 hover:text-cyan-300 transition-colors duration-200;
+  white-space: nowrap;
+}
+.nav-link-mobile::after {
+  display: none;
+}
+.nav-link-mobile.active-link {
+    @apply text-cyan-300 bg-gray-700;
+}
+
+#main-nav.scrolled {
+  @apply bg-gray-900/90 shadow-xl;
+}
+#menu-links.mobile-menu-open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+
+/*====================================*/
+/* Utilities                        */
+/*====================================*/
+.display-block {
+    display: block;
+}
+
+/*====================================*/
+/* Responsive Styles                */
+/*====================================*/
+/* Add specific responsive overrides if needed */
